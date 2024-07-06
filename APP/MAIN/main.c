@@ -9,7 +9,6 @@
 /* Include necessary header files */
 #include "LED_Core.h"
 #include "Button_Core.h"
-#include "SevSeg_Core.h"
 #include "PORT_Core.h"
 #include "DIO_Core.h"
 #include "LCD_Core.h"
@@ -18,12 +17,6 @@
 #include "ADC_Core.h"
 #include "GPT_Core.h"
 #include "PWM_Core.h"
-#include "DcMotor_Core.h"
-#include "Ultrasonic_Core.h"
-#include "ICU_Core.h"
-#include "UART_Core.h"
-#include "SPI_Core.h"
-#include "EEPROM_core.h"
 #include "Relay.h"
 
 /*.........................................................*/
