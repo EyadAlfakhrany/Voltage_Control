@@ -1,30 +1,19 @@
 # Voltage_Control
--how to control capacitor bank with stages using lv25 and current sensor to display it in LCD using two buttons first button to change from rms current and rms voltage and another button is for power show it
+
+
+-how to control capacitor bank with stages using lv25 voltage sensor and YHDC sct-013-100 CT as current sensor to display it in LCD using 
+two buttons first button to change from rms current and rms voltage and another button is for power show it
 -contains files individually in c and zip file for all project
 -main file is in APP file
 
 
-
-
-
-
-/************************************************************/
+/*******************************************************************************************************************************************/
 Download 0_working CT V.zip
 it contain all drivers with a mine and drivers for this application
-/************************************************************/
+/*******************************************************************************************************************************************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-/************************************************************/
+/*******************************************************************************************************************************************/
 Eyad alfakhrany tanta university 2024
-/************************************************************/
+/*******************************************************************************************************************************************/
+
