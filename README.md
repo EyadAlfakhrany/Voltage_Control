@@ -1,101 +1,84 @@
-# Embedded Power Monitoring System Using ATmega32
+# Voltage_Control
 
-This project implements a real-time power monitoring system using the ATmega32 microcontroller. It measures voltage and current through ADC inputs, calculates RMS values, applies calibration corrections, controls relays based on voltage thresholds, and displays measurements on an LCD screen. Additionally, it uses buzzer and LEDs for alerts.
+This project implements a **capacitor bank voltage control system** using the ATmega32 microcontroller. The system monitors voltage and current using sensors, controls capacitor bank stages to stabilize voltage, and displays real-time measurements on an LCD screen.
+
+---
+
+## Project Description
+
+The main goal of this project is to maintain a stable voltage across capacitors by controlling switching stages of a capacitor bank. This is achieved by continuously measuring the system's RMS voltage and current, calculating power, and activating the appropriate relay stages.
+
+Two sensors are used:
+
+- **LV25 Voltage Sensor** for voltage measurement
+- **YHDC SCT-013-100 Current Transformer (CT)** for current measurement
+
+The user can interact with the system using two push buttons:
+
+- **Button 1:** Toggles the LCD display between RMS voltage and RMS current.
+- **Button 2:** Switches the LCD display to show calculated power.
 
 ---
 
 ## Features
 
-- Real-time voltage and current sensing using ADC
-- RMS calculation and error correction for accurate measurement
-- Power calculation with configurable power factor
-- Multi-stage relay control based on voltage thresholds
-- Audible and visual alerts (buzzer and LEDs)
-- User interaction via push buttons to toggle display modes
-- Modular code architecture with separate drivers for peripherals
+- Real-time RMS voltage and current measurement.
+- Power calculation with configurable power factor.
+- Multi-stage relay activation for capacitor bank switching.
+- Audible buzzer and LED indicators for alarms and warnings.
+- User-friendly interface with two buttons to switch display modes.
 
 ---
 
 ## Hardware Components
 
-| Component           | Description                         |
-|---------------------|-----------------------------------|
-| ATmega32 MCU        | Main controller                   |
-| Voltage Sensor      | Analog voltage measurement input  |
-| Current Sensor      | Analog current measurement input  |
-| 16x2 LCD Display    | Displays voltage, current, and power readings |
-| Buzzer              | Audible alert device               |
-| LEDs (Red & Blue)   | Visual indicators for warnings     |
-| Push Buttons        | User interface for display toggling|
-| Relays              | Controlled switching based on voltage thresholds |
-| Power Supply        | 5V regulated                      |
+| Component                   | Description                         |
+|-----------------------------|-----------------------------------|
+| ATmega32 Microcontroller    | Main controller                    |
+| LV25 Voltage Sensor         | Voltage sensing                    |
+| YHDC SCT-013-100 CT         | Current sensing                   |
+| 16x2 LCD Display            | Shows voltage, current, and power readings |
+| Push Buttons (x2)           | For display mode selection         |
+| Relay Modules               | Controls capacitor bank stages     |
+| Buzzer                     | Audible alarm                      |
+| LEDs (Red and Blue)         | Visual alarm indicators            |
 
 ---
 
 ## Software Overview
 
-The system operates by:
-
-1. Continuously sampling voltage and current sensor signals through ADC channels.
-2. Computing RMS values from sampled data.
-3. Applying error correction algorithms to improve measurement accuracy.
-4. Controlling relay stages based on preset RMS voltage thresholds.
-5. Providing user feedback through buzzer and LED signals on alarm conditions.
-6. Allowing the user to switch between displaying voltage/current or power readings on the LCD via buttons.
+- Continuously samples analog voltage and current signals via ADC.
+- Calculates RMS values and applies error correction.
+- Controls capacitor bank relay stages based on voltage thresholds.
+- Provides audible and visual alarms when necessary.
+- Allows user to toggle display information on the LCD.
 
 ---
 
-## Key Functions
+## Usage
 
-- `Fun_Safety()`: Activates buzzer and red LED when voltage exceeds critical levels.
-- `Buz_LED()`: Blinks blue LED and buzzer for alert signals.
-- `map()`: Maps ADC readings from one range to another for sensor calibration.
-- `convertToCurrent()`: Converts ADC voltage readings to current values based on calibration.
-- `Error_Solve_Voltage()` & `Error_Solve_Current()`: Apply corrections to measured voltage and current values to account for sensor or measurement inaccuracies.
+1. Connect sensors to designated ADC input pins.
+2. Power the system and initialize.
+3. Use **Button 1** to toggle between displaying RMS voltage and RMS current.
+4. Use **Button 2** to view power consumption.
+5. System automatically switches capacitor stages to maintain stable voltage.
 
 ---
 
 ## Development Environment
 
-- Microcontroller: ATmega32 (8-bit AVR)
-- Language: Embedded C (AVR-GCC)
+- Microcontroller: ATmega32
+- Language: Embedded C (AVR GCC)
 - IDE: Atmel Studio / Microchip Studio
-- Programmer: USBasp / AVR ISP
-- Libraries: Custom hardware abstraction layers for peripherals (ADC, LCD, Buttons, Relay, etc.)
-
----
-
-## How to Use
-
-1. Connect voltage and current sensors to the designated ADC input channels.
-2. Power the system with regulated 5V supply.
-3. The LCD will display voltage and current readings by default.
-4. Use the first push button to toggle between voltage/current display modes.
-5. Use the second push button to switch the display to power measurement mode.
-6. The system will sound buzzer and light LEDs on alarm conditions and switch relay stages accordingly.
-
----
-
-## Future Improvements
-
-- Integrate data logging to external memory or PC via UART
-- Add communication interface (e.g., Bluetooth or Wi-Fi) for remote monitoring
-- Implement more sophisticated power factor measurement
-- Add calibration menu accessible via keypad input
-
----
-
-## License
-
-This project is licensed under the MIT License.
+- Programmer: USBasp or AVR ISP
 
 ---
 
 ## Author
 
-EyadA  
-Embedded Systems Engineer  
-[GitHub](#) | [LinkedIn](#)
+Eyad Alfakhrany  
+Tanta University - 2024  
+Embedded Systems Engineer
 
 ---
 
