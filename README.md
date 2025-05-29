@@ -1,4 +1,4 @@
-# Voltage_Control
+#Analysis-and-Control-of-a-Standalone-Synchronous-Generator-Driven-by-Wind
 
 This project implements a **capacitor bank voltage control system** using the ATmega32 microcontroller. The system monitors voltage and current using sensors, controls capacitor bank stages to stabilize voltage, and displays real-time measurements on an LCD screen.
 
