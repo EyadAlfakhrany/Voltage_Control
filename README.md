@@ -1,74 +1,63 @@
-#Analysis-and-Control-of-a-Standalone-Synchronous-Generator-Driven-by-Wind
+# Analysis and Control of a Standalone Synchronous Generator Driven by Wind
 
-This project implements a **capacitor bank voltage control system** using the ATmega32 microcontroller. The system monitors voltage and current using sensors, controls capacitor bank stages to stabilize voltage, and displays real-time measurements on an LCD screen.
+This project focuses on the **analysis and control of a standalone synchronous generator** powered by wind energy. The system aims to monitor and regulate the generator's output parameters such as voltage, current, and power, ensuring stable and reliable performance.
 
 ---
 
 ## Project Description
 
-The main goal of this project is to maintain a stable voltage across capacitors by controlling switching stages of a capacitor bank. This is achieved by continuously measuring the system's RMS voltage and current, calculating power, and activating the appropriate relay stages.
+The project implements a control system using the ATmega32 microcontroller to manage a standalone synchronous generator driven by wind. It includes real-time measurement of electrical parameters using sensors, displaying these parameters on an LCD, and controlling load or generator operation via relays based on measured values.
 
-Two sensors are used:
+Key functionalities include:
 
-- **LV25 Voltage Sensor** for voltage measurement
-- **YHDC SCT-013-100 Current Transformer (CT)** for current measurement
-
-The user can interact with the system using two push buttons:
-
-- **Button 1:** Toggles the LCD display between RMS voltage and RMS current.
-- **Button 2:** Switches the LCD display to show calculated power.
-
----
-
-## Features
-
-- Real-time RMS voltage and current measurement.
-- Power calculation with configurable power factor.
-- Multi-stage relay activation for capacitor bank switching.
-- Audible buzzer and LED indicators for alarms and warnings.
-- User-friendly interface with two buttons to switch display modes.
+- Monitoring RMS voltage and current from the generator.
+- Calculating power output with consideration of power factor.
+- Controlling switching stages to maintain optimal generator operation.
+- Providing visual and audible alarms for abnormal conditions.
+- User interaction through push buttons to toggle display modes on the LCD.
 
 ---
 
 ## Hardware Components
 
-| Component                   | Description                         |
-|-----------------------------|-----------------------------------|
-| ATmega32 Microcontroller    | Main controller                    |
-| LV25 Voltage Sensor         | Voltage sensing                    |
-| YHDC SCT-013-100 CT         | Current sensing                   |
-| 16x2 LCD Display            | Shows voltage, current, and power readings |
-| Push Buttons (x2)           | For display mode selection         |
-| Relay Modules               | Controls capacitor bank stages     |
-| Buzzer                     | Audible alarm                      |
-| LEDs (Red and Blue)         | Visual alarm indicators            |
+| Component                    | Description                        |
+|-----------------------------|----------------------------------|
+| ATmega32 Microcontroller     | Core controller                  |
+| LV25 Voltage Sensor          | Voltage measurement              |
+| YHDC SCT-013-100 Current Transformer (CT) | Current measurement            |
+| 16x2 LCD Display             | Visual feedback                  |
+| Push Buttons (2 units)       | User input for display control   |
+| Relay Modules               | Load or capacitor bank control   |
+| Buzzer                      | Audible alarm                    |
+| Status LEDs (Red and Blue)   | Visual alarm indicators          |
 
 ---
 
-## Software Overview
+## Software Features
 
-- Continuously samples analog voltage and current signals via ADC.
-- Calculates RMS values and applies error correction.
-- Controls capacitor bank relay stages based on voltage thresholds.
-- Provides audible and visual alarms when necessary.
-- Allows user to toggle display information on the LCD.
+- Acquisition of voltage and current through ADC.
+- RMS value calculations with calibration and error compensation.
+- Power computation considering the power factor.
+- Multi-stage relay control to protect and optimize generator performance.
+- Alarm signaling through buzzer and LEDs.
+- User interface to switch between RMS voltage, RMS current, and power display modes.
 
 ---
 
-## Usage
+## Usage Instructions
 
-1. Connect sensors to designated ADC input pins.
-2. Power the system and initialize.
-3. Use **Button 1** to toggle between displaying RMS voltage and RMS current.
-4. Use **Button 2** to view power consumption.
-5. System automatically switches capacitor stages to maintain stable voltage.
+1. Connect sensors and actuators to the microcontroller as specified.
+2. Power the system to begin measurements and control.
+3. Use **Button 1** to toggle the LCD between RMS voltage and RMS current.
+4. Use **Button 2** to display the calculated power output.
+5. The system automatically controls relays to maintain safe and efficient operation.
 
 ---
 
 ## Development Environment
 
 - Microcontroller: ATmega32
-- Language: Embedded C (AVR GCC)
+- Programming Language: Embedded C
 - IDE: Atmel Studio / Microchip Studio
 - Programmer: USBasp or AVR ISP
 
